@@ -17,6 +17,7 @@ import java.util.logging.Level;
 
 // import io.github.bonigarcia.wdm.WebDriverManager;
 import demo.wrappers.Wrappers;
+import dev.failsafe.internal.util.Assert;
 
 public class TestCases {
     ChromeDriver driver;
@@ -26,6 +27,60 @@ public class TestCases {
      * Follow `testCase01` `testCase02`... format or what is provided in instructions
      */
 
+    @Test
+    public void testCase01()
+            throws InterruptedException {
+        
+        System.out.println("Start Test case: testCase01");
+        Wrappers navigate = new Wrappers(driver);
+        
+        String website = "https://www.flipkart.com/";
+        navigate.navigateToSite(website);
+
+        navigate.searchProduct("Washing Machine");
+
+        navigate.sortByPopularity();
+
+        navigate.countItems();
+
+        System.out.println("End Test case: testCase01");
+    }
+
+    @Test
+    public void testCase02()
+            throws InterruptedException {
+        
+        System.out.println("\nStart Test case: testCase02");
+        Wrappers navigate = new Wrappers(driver);
+        
+        String website = "https://www.flipkart.com/";
+        navigate.navigateToSite(website);
+
+        navigate.searchProduct("iPhone");
+
+        navigate.filterBasedOnRating();
+
+        System.out.println("End Test case: testCase02");
+    }
+
+    @Test
+    public void testCase03()
+            throws InterruptedException {
+        
+        System.out.println("\nStart Test case: testCase03");
+        Wrappers navigate = new Wrappers(driver);
+        
+        String website = "https://www.flipkart.com/";
+        navigate.navigateToSite(website);
+
+        navigate.searchProduct("Coffee Mug");
+
+        navigate.selectRating();
+
+        navigate.review();
+
+        System.out.println("End Test case: testCase03");
+    }
      
     /*
      * Do not change the provided methods unless necessary, they will help in automation and assessment
